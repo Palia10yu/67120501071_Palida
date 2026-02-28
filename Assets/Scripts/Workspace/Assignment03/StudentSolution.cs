@@ -17,7 +17,7 @@ namespace Assignment03
 
         public void LCT01_SyntaxLinkedList()
         {
-           // 1. สร้าง LinkedList ของประเภท string
+            // 1. สร้าง LinkedList ของประเภท string
             LinkedList<string> linkedList = new LinkedList<string>();
 
             // 2. เพิ่มข้อมูลที่ท้ายของ LinkedList
@@ -64,7 +64,7 @@ namespace Assignment03
         private void LCT01_PrintLinkedList(LinkedList<string> linkedList)
         {
             Debug.Log("LinkedList...");
-            foreach(var node in linkedList)
+            foreach (var node in linkedList)
             {
                 Debug.Log(node);
             }
@@ -72,12 +72,12 @@ namespace Assignment03
 
         public void LCT02_SyntaxHashTable()
         {
-            
+
             Hashtable hashtable = new Hashtable();
             //Key Value
-            hashtable.Add(1,"Apple");
-            hashtable.Add(2,"Banana");
-            hashtable.Add("bad-fruit","Rotten Tomato");
+            hashtable.Add(1, "Apple");
+            hashtable.Add(2, "Banana");
+            hashtable.Add("bad-fruit", "Rotten Tomato");
 
             string fruit1 = (string)hashtable[1];
             string fruit2 = (string)hashtable[2];
@@ -106,7 +106,7 @@ namespace Assignment03
         public void LCT02_PrintHashTable(Hashtable hashtable)
         {
             Debug.Log("table ...");
-            foreach(DictionaryEntry entry in hashtable)
+            foreach (DictionaryEntry entry in hashtable)
             {
                 Debug.Log($"Key: {entry.Key}, Value: {entry.Value}");
             }
@@ -114,24 +114,24 @@ namespace Assignment03
 
         public void LCT03_SyntaxDictionary()
         {
-            Dictionary<int,String> dictionary = new Dictionary<int, string>();
+            Dictionary<int, String> dictionary = new Dictionary<int, string>();
 
-            dictionary.Add(1,"Apple");
-            dictionary.Add(2,"Banana");
+            dictionary.Add(1, "Apple");
+            dictionary.Add(2, "Banana");
             dictionary[3] = "Cherry";
             LCT03_Prindictionary(dictionary);
 
             int keyTocheck = 1;
             bool hasKey = dictionary.ContainsKey(keyTocheck);
             Debug.Log($"has key {keyTocheck} : {hasKey}");
-            if(hasKey)
+            if (hasKey)
             {
                 string value = dictionary[keyTocheck];
                 Debug.Log($"value of key {keyTocheck} : {value}");
             }
 
             Debug.Log("All keys in dictionary:");
-            foreach(int key in dictionary.Keys)
+            foreach (int key in dictionary.Keys)
             {
                 Debug.Log(key);
             }
@@ -143,10 +143,10 @@ namespace Assignment03
             dictionary.Clear();
         }
 
-        private void LCT03_Prindictionary(Dictionary<int,String> dictionary)
+        private void LCT03_Prindictionary(Dictionary<int, String> dictionary)
         {
             Debug.Log($"Dictionary has {dictionary.Count} keys");
-            foreach(KeyValuePair<int,string> entry in dictionary)
+            foreach (KeyValuePair<int, string> entry in dictionary)
             {
                 Debug.Log($"Key: {entry.Key}, Value: {entry.Value}");
             }
@@ -157,47 +157,259 @@ namespace Assignment03
 
         public void AS01_CountWords(string[] words)
         {
-            throw new System.NotImplementedException();
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                string currentWord = words[i];
+
+                if (dictionary.ContainsKey(currentWord))
+                {
+                    dictionary[currentWord]++;
+                }
+                else
+                {
+                    dictionary.Add(currentWord, 1);
+                }
+            }
+
+            string[] keysArray = dictionary.Keys.ToArray();
+            int[] valuesArray = dictionary.Values.ToArray();
+
+            for (int i = 0; i < keysArray.Length; i++)
+            {
+                Debug.Log($"word: '{keysArray[i]}' count: {valuesArray[i]}");
+            }
         }
 
         public void AS02_CountNumber(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            Dictionary<int, int> dictionary = new Dictionary<int, int>();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int currentnum = numbers[i];
+
+                if (dictionary.ContainsKey(currentnum))
+                {
+                    dictionary[currentnum]++;
+                }
+                else
+                {
+                    dictionary.Add(currentnum, 1);
+                }
+            }
+
+            int[] keysArray = dictionary.Keys.ToArray();
+            int[] valuesArray = dictionary.Values.ToArray();
+
+            for (int i = 0; i < keysArray.Length; i++)
+            {
+                Debug.Log($"number: {keysArray[i]} count: {valuesArray[i]}");
+            }
         }
 
         public void AS03_CheckValidBrackets(string input)
         {
-            throw new System.NotImplementedException();
+            Dictionary<char, char> dictionary = new Dictionary<char, char>();
+            dictionary.Add('(', ')');
+            dictionary.Add('[', ']');
+            dictionary.Add('{', '}');
+
+            LinkedList<char> stack = new LinkedList<char>();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                char currentChar = input[i];
+
+                if (dictionary.ContainsKey(currentChar))
+                {
+                    stack.AddLast(currentChar);
+                }
+                else if (dictionary.ContainsValue(currentChar))
+                {
+                    if (stack.Count == 0)
+                    {
+                        Debug.Log("Invalid");
+                        return;
+                    }
+
+                    char lastOpenBracket = stack.Last.Value;
+                    if (dictionary[lastOpenBracket] == currentChar)
+                    {
+                        stack.RemoveLast();
+                    }
+                    else
+                    {
+                        Debug.Log("Invalid");
+                        return;
+                    }
+                }
+            }
+
+            if (stack.Count == 0)
+            {
+                Debug.Log("Valid");
+            }
+            else
+            {
+                Debug.Log("Invalid");
+            }
         }
 
         public void AS04_PrintReverseLinkedList(LinkedList<int> list)
         {
-            throw new System.NotImplementedException();
+            if (list == null || list.Count == 0)
+            {
+                Debug.Log("List is empty");
+                return;
+            }
+
+            LinkedListNode<int> currentNode = list.Last;
+
+            while (currentNode != null)
+            {
+                Debug.Log(currentNode.Value);
+                currentNode = currentNode.Previous;
+            }
         }
 
         public void AS05_FindMiddleElement(LinkedList<string> list)
         {
-            throw new System.NotImplementedException();
+            if (list == null || list.Count == 0)
+            {
+                Debug.Log("List is empty");
+                return;
+            }
+
+            LinkedListNode<string> slow = list.First;
+            LinkedListNode<string> fast = list.First;
+
+            while (fast != null && fast.Next != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next.Next;
+            }
+            Debug.Log(slow.Value);
         }
 
         public void AS06_MergeDictionaries(Dictionary<string, int> dict1, Dictionary<string, int> dict2)
         {
-            throw new System.NotImplementedException();
+            Dictionary<string, int> mergedDict = new Dictionary<string, int>(dict1);
+
+            foreach (KeyValuePair<string, int> kvp in dict2)
+            {
+                if (mergedDict.ContainsKey(kvp.Key))
+                {
+                    mergedDict[kvp.Key] += kvp.Value;
+                }
+                else
+                {
+                    mergedDict.Add(kvp.Key, kvp.Value);
+                }
+            }
+
+            foreach (KeyValuePair<string, int> kvp in mergedDict)
+            {
+                Debug.Log($"key: {kvp.Key}, value: {kvp.Value}");
+            }
         }
 
         public void AS07_RemoveDuplicatesFromLinkedList(LinkedList<int> list)
         {
-            throw new System.NotImplementedException();
+            if (list == null)
+            {
+                return;
+            }
+
+            if (list.Count > 1)
+            {
+                Dictionary<int, bool> check = new Dictionary<int, bool>();
+                LinkedListNode<int> currentNode = list.First;
+
+                while (currentNode != null)
+                {
+                    LinkedListNode<int> nextNode = currentNode.Next;
+
+                    if (check.ContainsKey(currentNode.Value))
+                    {
+                        list.Remove(currentNode);
+                    }
+                    else
+                    {
+                        check.Add(currentNode.Value, true);
+                    }
+
+                    currentNode = nextNode;
+                }
+            }
+
+            foreach (int item in list)
+            {
+                Debug.Log(item);
+            }
         }
 
         public void AS08_TopFrequentNumber(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            if (numbers == null || numbers.Length == 0)
+            {
+                Debug.Log("Input array is empty");
+                return;
+            }
+
+            Dictionary<int, int> countDict = new Dictionary<int, int>();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int currentNumber = numbers[i];
+
+                if (countDict.ContainsKey(currentNumber))
+                {
+                    countDict[currentNumber]++;
+                }
+                else
+                {
+                    countDict.Add(currentNumber, 1);
+                }
+            }
+
+            int topNumber = 0;
+            int maxCount = 0;
+
+            foreach (KeyValuePair<int, int> kvp in countDict)
+            {
+                if (kvp.Value > maxCount)
+                {
+                    maxCount = kvp.Value;
+                    topNumber = kvp.Key;
+                }
+            }
+
+            Debug.Log($"{topNumber} count: {maxCount}");
         }
 
         public void AS09_PlayerInventory(Dictionary<string, int> inventory, string itemName, int quantity)
         {
-            throw new System.NotImplementedException();
+            if (inventory == null)
+            {
+                Debug.Log("Inventory is null");
+                return;
+            }
+
+            if (inventory.ContainsKey(itemName))
+            {
+                inventory[itemName] += quantity;
+            }
+            else
+            {
+                inventory.Add(itemName, quantity);
+            }
+
+            foreach (KeyValuePair<string, int> item in inventory)
+            {
+                Debug.Log($"{item.Key}: {item.Value}");
+            }
         }
 
         #endregion

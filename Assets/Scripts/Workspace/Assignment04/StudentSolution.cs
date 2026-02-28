@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using AssignmentSystem.Services;
@@ -13,13 +14,13 @@ namespace Assignment05
         #region Lecture
         public void LCT01_SelectionSortAscending(int[] numbers)
         {
-           int n = numbers.Length;
-           for(int i=0; i < n-1; i++)
+            int n = numbers.Length;
+            for (int i = 0; i < n - 1; i++)
             {
                 int minIndex = i;
-                for(int j= i+1;j<n;j++)
+                for (int j = i + 1; j < n; j++)
                 {
-                    if(numbers[j] < numbers[minIndex])
+                    if (numbers[j] < numbers[minIndex])
                     {
                         minIndex = j;
                     }
@@ -28,7 +29,7 @@ namespace Assignment05
                 numbers[minIndex] = numbers[i];
                 numbers[i] = temp;
             }
-            foreach(var n_ in numbers)
+            foreach (var n_ in numbers)
             {
                 Debug.Log(n_);
             }
@@ -82,22 +83,94 @@ namespace Assignment05
 
         public void AS01_SelectionSortDescending(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            int n = numbers.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int MaxIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (numbers[j] > numbers[MaxIndex])
+                    {
+                        MaxIndex = j;
+                    }
+                }
+                int temp = numbers[MaxIndex];
+                numbers[MaxIndex] = numbers[i];
+                numbers[i] = temp;
+            }
+            foreach (var n_ in numbers)
+            {
+                Debug.Log(n_);
+            }
         }
 
         public void AS02_BubbleSortDescending(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            int n = numbers.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    if (numbers[j] < numbers[j + 1])
+                    {
+                        int temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+                    }
+                }
+            }
+            foreach (var n_ in numbers)
+            {
+                Debug.Log(n_);
+            }
         }
 
         public void AS03_InsertionSortDescending(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            int n = numbers.Length;
+            for (int i = 1; i < n; i++)
+            {
+                int key = numbers[i];
+                int j = i - 1;
+                while (j >= 0 && numbers[j] < key)
+                {
+                    numbers[j + 1] = numbers[j];
+                    j--;
+                }
+
+                numbers[j + 1] = key;
+            }
+            foreach (var n_ in numbers)
+            {
+                Debug.Log(n_);
+            }
         }
 
         public void AS04_FindTheSecondLargestNumber(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            int n = numbers.Length;
+            for (int i = 1; i < n; i++)
+            {
+                int key = numbers[i];
+                int j = i - 1;
+                while (j >= 0 && numbers[j] < key)
+                {
+                    numbers[j + 1] = numbers[j];
+                    j--;
+                }
+
+                numbers[j + 1] = key;
+            }
+            int MaxNum = numbers[0];
+
+            for(int i =1; i < numbers.Length; i++)
+            {
+                if(numbers[i] < MaxNum)
+                {
+                    Debug.Log(numbers[i]);
+                    return;
+                }
+            }
         }
 
         #endregion
