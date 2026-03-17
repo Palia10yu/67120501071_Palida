@@ -1,14 +1,9 @@
 using UnityEngine;
 
-namespace Assignment03.StudentSolution
+namespace Assignment02.StudentSolution
 {
-    public class Potion : Item
+    public class Potion
     {
-        public int healingAmount;
 
-        public override void Use(Player player)
-        {
-            base.Use(player);
-        }
     }
 }

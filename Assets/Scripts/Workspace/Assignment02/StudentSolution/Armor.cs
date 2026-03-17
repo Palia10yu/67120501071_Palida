@@ -1,14 +1,9 @@
 using UnityEngine;
 
-namespace Assignment03.StudentSolution
+namespace Assignment02.StudentSolution
 {
-    public class Armor : Equipment
+    public class Armor
     {
-        public int defense;
 
-        public override void Equip(Player player)
-        {
-            base.Equip(player);
-        }
     }
 }

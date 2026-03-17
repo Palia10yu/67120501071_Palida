@@ -1,14 +1,9 @@
 using UnityEngine;
 
-namespace Assignment03.StudentSolution
+namespace Assignment02.StudentSolution
 {
-    public class Weapon : Equipment
+    public class Weapon
     {
-        public int attackPower;
 
-        public virtual void DealDamage(Entity Targat)
-        {
-            
-        }
     }
 }

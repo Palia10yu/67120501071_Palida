@@ -1,20 +1,9 @@
 using UnityEngine;
 
-namespace Assignment03.StudentSolution
+namespace Assignment02.StudentSolution
 {
-    public class Player : Entity
+    public class Player
     {
-        public int score;
-        private Item[] items;
 
-        public void CollectItem(Item item)
-        {
-            
-        }
-
-        protected void LevelUp()
-        {
-            
-        }
     }
 }
