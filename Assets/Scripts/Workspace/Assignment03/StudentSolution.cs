@@ -418,12 +418,66 @@ namespace Assignment03
 
         public void EX01_GameEventQueue(LinkedList<GameEvent> eventQueue)
         {
-            throw new System.NotImplementedException();
+            if (eventQueue == null || eventQueue.Count == 0)
+            {
+                Debug.Log("Event queue is empty");
+                return;
+            }
+
+            while (eventQueue.Count > 0)
+            {
+                GameEvent currentEvent = eventQueue.First.Value;
+                eventQueue.RemoveFirst();
+
+                Debug.Log($"Processing event: {currentEvent.Name}");
+                Debug.Log($"Remaining events in queue: {eventQueue.Count}");
+
+                string eventName = currentEvent.Name.ToLower();
+                if (eventName.Contains("goblin") || eventName.Contains("enemy"))
+                {
+                    Debug.Log($"Enemy event processed - {currentEvent.Name}");
+                }
+                else if (eventName.Contains("health") || eventName.Contains("power"))
+                {
+                    Debug.Log($"Power-up event processed - {currentEvent.Name}");
+                }
+                else if (eventName.Contains("level"))
+                {
+                    Debug.Log($"Level event processed - {currentEvent.Name}");
+                }
+                else if (eventName.Contains("kill") || eventName.Contains("achievement")) // <-- เพิ่มเคสนี้เข้ามาใหม่!
+                {
+                    Debug.Log($"Achievement unlocked - {currentEvent.Name}");
+                }
+                else
+                {
+                    Debug.Log($"Generic event processed - {currentEvent.Name}");
+                }
+            }
         }
+
 
         public void EX02_PlayerStatsTracker(Dictionary<string, int> playerStats, string statName, int value)
         {
-            throw new System.NotImplementedException();
+            if (playerStats == null) return;
+
+            if (playerStats.ContainsKey(statName))
+            {
+                playerStats[statName] += value;
+            }
+            else
+            {
+                playerStats.Add(statName, value);
+            }
+
+            Debug.Log($"Updated {statName}: {playerStats[statName]}");
+
+            Debug.Log("Current player statistics:");
+
+            foreach (KeyValuePair<string, int> entry in playerStats)
+            {
+                Debug.Log($"{entry.Key}: {entry.Value}");
+            }
         }
 
         #endregion

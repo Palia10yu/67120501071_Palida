@@ -6,23 +6,23 @@ namespace Assignment02.StudentSolution.LCT04
     public class Animal
     {
         /// <summary>
-        /// name เป็น public จึงสามารถเข้าถึงได้จากภายนอก class
-        /// รวมถึงภายใน method ของ class ที่สืบทอด Animal ไปด้วย
+        /// name ๏ฟฝ๏ฟฝ public ๏ฟฝึง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง๏ฟฝ๏ฟฝาก๏ฟฝ๏ฟฝยนอก class
+        /// ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝึง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ method ๏ฟฝอง class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝืบ๏ฟฝอด Animal ไปด๏ฟฝ๏ฟฝ๏ฟฝ
         /// </summary>
-        string name = "";
+        public string name = "";
 
         /// <summary>
-        /// specie เป็น protected จึงสามารถเข้าถึงได้จากภายใน class ที่สืบทอด Animal
-        /// จากการออกแบบนี้ จะทำให้การกำหนดค่าให้กับ specie จะต้องทำผ่าน class ที่สืบทอด Animal เท่านั้น
-        /// เช่นผ่าน constructor ของ Dog เพื่อกำหนดค่า specie = "Dog"
-        /// ไม่สามารถกำหนดค่าให้กับ specie จากภายนอก class ได้
+        /// specie ๏ฟฝ๏ฟฝ protected ๏ฟฝึง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง๏ฟฝ๏ฟฝาก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝืบ๏ฟฝอด Animal
+        /// ๏ฟฝาก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอกแบบ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝะท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรก๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ specie ๏ฟฝะต๏ฟฝอง๏ฟฝำผ๏ฟฝาน class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝืบ๏ฟฝอด Animal ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ
+        /// ๏ฟฝ่นผ๏ฟฝาน constructor ๏ฟฝอง Dog ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ specie = "Dog"
+        /// ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ specie ๏ฟฝาก๏ฟฝ๏ฟฝยนอก class ๏ฟฝ๏ฟฝ
         /// </summary>
-        string specie = "";
+        public string specie = "";
 
         /// <summary>
-        /// health เป็น private จึงสามารถเข้าถึงได้เฉพาะภายใน class นี้ (Animal) เท่านั้น
+        /// health ๏ฟฝ๏ฟฝ private ๏ฟฝึง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง๏ฟฝ๏ฟฝเฉพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ class ๏ฟฝ๏ฟฝ๏ฟฝ (Animal) ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ
         /// </summary>
-        int health = 10;
+        private int health = 10;
 
         public void Feed(int food)
         {
@@ -31,9 +31,9 @@ namespace Assignment02.StudentSolution.LCT04
         }
 
         /// <summary>
-        /// MakeSound method จะ Debug.Log ข้อความออกมาด้วยเงื่อนไข
-        /// + ถ้า health > 50 จะพิมพ์ "{name} happy!"
-        /// + ถ้า health <= 50 จะพิมพ์ "{name} weak!"
+        /// MakeSound method ๏ฟฝ๏ฟฝ Debug.Log ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝาด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ
+        /// + ๏ฟฝ๏ฟฝ๏ฟฝ health > 50 ๏ฟฝะพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ "{name} happy!"
+        /// + ๏ฟฝ๏ฟฝ๏ฟฝ health <= 50 ๏ฟฝะพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ "{name} weak!"
         /// </summary>
         public void MakeSound()
         {
@@ -50,18 +50,21 @@ namespace Assignment02.StudentSolution.LCT04
 
     public class Dog : Animal
     {
+        
         public Dog(string name)
         {
-            // 1. กำหนด specie = "Dog"
-            // สามารถเข้าถึง specie ได้เนื่องจาก specie เป็น protected
-            // ทำให้สามารถเข้าถึงได้จาก class ที่สืบทอด Animal ได้
+            // 1. ๏ฟฝ๏ฟฝหน๏ฟฝ specie = "Dog"
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง specie ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก specie ๏ฟฝ๏ฟฝ protected
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง๏ฟฝ๏ฟฝาก class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝืบ๏ฟฝอด Animal ๏ฟฝ๏ฟฝ
+            this.specie = "Dog";
 
-            // 2. กำนด this.name = name ที่รับเป็น parameter จาก constructor
-            // สามารถเข้าถึง name ได้เนื่องจาก name เป็น public 
-            // ทำให้สามารถเข้าถึงได้จาก class นี้ได้ เนื่องจาก class นี้สืบทอด Animal
+            // 2. ๏ฟฝำน๏ฟฝ this.name = name ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ parameter ๏ฟฝาก constructor
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง name ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก name ๏ฟฝ๏ฟฝ public 
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง๏ฟฝ๏ฟฝาก class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝืบ๏ฟฝอด Animal
+            this.name = name;
 
-            // ไม่สามารถเข้าถึง health ได้เนื่องจาก health เป็น private
-            // ทำให้ใช้งานได้แค่ใน class ที่ประกาศ health ไว้เท่านั้น ซึ่งก็คือ class Animal
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง health ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก health ๏ฟฝ๏ฟฝ private
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะก๏ฟฝ๏ฟฝ health ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ่งก๏ฟฝ๏ฟฝ๏ฟฝ class Animal
             // this.health = 100; ==> COMPILE ERROR
         }
     }
@@ -73,22 +76,23 @@ namespace Assignment02.StudentSolution.LCT04
             Dog dog = new Dog("Buddy");
 
             // student code start HERE ...
-            // 1. พิมพ์ dog.name ออกมาในข้อความ $"my name is {dog.name}"
+            // 1. ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ dog.name ๏ฟฝอก๏ฟฝ๏ฟฝในข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ $"my name is {dog.name}"
             // ...
+            Debug.Log($"my name is {dog.name}");
 
             // student code ends HERE
 
             // NOTE #1
-            // จะไม่สามารถเข้าถึง specie ได้เนื่องจาก specie เป็น protected
-            // จึงเรียกใช้งานได้เฉพาะภายใน class เท่านั้น
-            // ไม่สามารถเข้าถึงผ่าน object ที่สร้างจาก class ที่สืบทอด Animal ได้
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง specie ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก specie ๏ฟฝ๏ฟฝ protected
+            // ๏ฟฝึง๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝเฉพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ class ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง๏ฟฝ๏ฟฝาน object ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝาก class ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝืบ๏ฟฝอด Animal ๏ฟฝ๏ฟฝ
             // Debug.Log($"I am {dog.specie}");
 
             // NOTE #2
-            // ไม่สามารถเข้าถึง health ได้เนื่องจาก health เป็น private ของ class Animal
-            // ซึ่งเป็น class แม่ ของ Dog และเนื่องจากเป้น private 
-            // ตัวแปร health จึงไม่ถูกสืบทอดต่อมาที่ class Dog ได้
-            // ไม่สามารถเรียกใช้งานตัวแปร health จาก dog ได้
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝาถึง health ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก health ๏ฟฝ๏ฟฝ private ๏ฟฝอง class Animal
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ class ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝอง Dog ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก๏ฟฝ๏ฟฝ private 
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ health ๏ฟฝึง๏ฟฝ๏ฟฝ๏ฟฝูก๏ฟฝืบ๏ฟฝอด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาท๏ฟฝ๏ฟฝ class Dog ๏ฟฝ๏ฟฝ
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ health ๏ฟฝาก dog ๏ฟฝ๏ฟฝ
             // Debug.Log($"my health {dog.health}");
 
             dog.MakeSound();

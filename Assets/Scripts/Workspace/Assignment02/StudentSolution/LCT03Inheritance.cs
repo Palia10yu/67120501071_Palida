@@ -15,15 +15,21 @@ namespace Assignment02.StudentSolution.LCT03
     }
 
     // class Dog inherits from Animal
-    public class Dog
+    public class Dog: Animal
     {
-
+        public void walkig()
+        {
+            Debug.Log($"Dog {name} is walking");
+        }
     }
 
     // class Bird inherits from Animal
-    public class Bird
+    public class Bird: Animal
     {
-
+        public void flying()
+        {
+            Debug.Log($"Bird {name} is flying");
+        }
     }
 
     public class LCT03Inheritance
@@ -31,18 +37,23 @@ namespace Assignment02.StudentSolution.LCT03
 
         public void Start()
         {
-            // 1. ÊÃéÒ§ instance ¢Í§ class Dog â´Â¡ÓË¹´ª×èÍµÑÇá»ÃÇèÒ dog
-            // + ¡ÓË¹´ª×èÍ (name) ÇèÒ "Buddy"
-            // + àÃÕÂ¡ãªé method MakeSound() ¢Í§ dog
-            // + àÃÕÂ¡ãªé method Walk() ¢Í§ dog
+            // 1. ï¿½ï¿½ï¿½Ò§ instance ï¿½Í§ class Dog ï¿½Â¡ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dog
+            // + ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ (name) ï¿½ï¿½ï¿½ "Buddy"
+            // + ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ method MakeSound() ï¿½Í§ dog
+            // + ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ method Walk() ï¿½Í§ dog
             Dog dog = new Dog();
+            dog.name = "Buddy";
+            dog.MakeSound();
+            dog.walkig();
 
-
-            // 2. ÊÃéÒ§ instance ¢Í§ class Bird â´Â¡ÓË¹´ª×èÍµÑÇá»ÃÇèÒ bird
-            // + ¡ÓË¹´ª×èÍ (name) ÇèÒ "Twitty"
-            // + àÃÕÂ¡ãªé method MakeSound() ¢Í§ bird
-            // + àÃÕÂ¡ãªé method Fly() ¢Í§ bird
+            // 2. ï¿½ï¿½ï¿½Ò§ instance ï¿½Í§ class Bird ï¿½Â¡ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bird
+            // + ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ (name) ï¿½ï¿½ï¿½ "Twitty"
+            // + ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ method MakeSound() ï¿½Í§ bird
+            // + ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ method Fly() ï¿½Í§ bird
             Bird bird = new();
+            bird.name = "Twitty";
+            bird.MakeSound();
+            bird.flying();
 
         }
     }

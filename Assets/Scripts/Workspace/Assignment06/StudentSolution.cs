@@ -127,7 +127,21 @@ namespace Assignment06
 
         public void AS02_FindMaxLessThan(int[] array, int target)
         {
-            Array.Sort(array);
+            int n = array.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int minIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (array[j] < array[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+                int temp = array[minIndex];
+                array[minIndex] = array[i];
+                array[i] = temp;
+            }
 
             int result = -1;
             for (int i = array.Length - 1; i >= 0; i--)
@@ -144,7 +158,21 @@ namespace Assignment06
 
         public void AS03_FindRange(int[] array, int min, int max)
         {
-            Array.Sort(array);
+            int n = array.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int minIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (array[j] < array[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+                int temp = array[minIndex];
+                array[minIndex] = array[i];
+                array[i] = temp;
+            }
 
             bool found = false;
 
@@ -172,7 +200,37 @@ namespace Assignment06
 
         public void EX01_FindTargetEnemies(int[] enemyHPs, int mana)
         {
-            throw new NotImplementedException();
+            int[] sortedHPs = (int[])enemyHPs.Clone();
+            int n = enemyHPs.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int minIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (enemyHPs[j] < enemyHPs[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+                int temp = enemyHPs[minIndex];
+                enemyHPs[minIndex] = enemyHPs[i];
+                enemyHPs[i] = temp;
+            }
+
+            int currentMana = mana;
+
+            for (int i = 0; i < sortedHPs.Length; i++)
+            {
+                if (sortedHPs[i] <= currentMana)
+                {
+                    currentMana -= sortedHPs[i];
+                    Debug.Log(sortedHPs[i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
         #endregion

@@ -307,7 +307,7 @@ namespace Assignment
                 string row = "";
                 for (int j = 2; j <= 4; j++)
                 {
-                    row += $"{j} x {i} = {j*i}";
+                    row += $"{j} x {i} = {j * i}";
                     if (j < 4)
                     {
                         row += "\t";
@@ -323,7 +323,68 @@ namespace Assignment
 
         public void EX_01_TicTacToeGame_TurnPlay(string[,] board, string playerTurn, int row, int column)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (board[i, j] == "_" || string.IsNullOrEmpty(board[i, j]))
+                    {
+                        board[i, j] = " ";
+                    }
+                }
+            }
+
+            bool isInvalidMove = row < 0 || row > 2 || column < 0 || column > 2 || board[row, column] == "X" || board[row, column] == "O";
+
+            if (isInvalidMove)
+            {
+                PrintBoard(board);
+                Debug.Log(">> Invalid move");
+                return;
+            }
+
+            board[row, column] = playerTurn;
+
+            PrintBoard(board);
+
+            bool isWin = false;
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (board[i, 0] == playerTurn && board[i, 1] == playerTurn && board[i, 2] == playerTurn) isWin = true;
+                if (board[0, i] == playerTurn && board[1, i] == playerTurn && board[2, i] == playerTurn) isWin = true;
+            }
+
+            if (board[0, 0] == playerTurn && board[1, 1] == playerTurn && board[2, 2] == playerTurn) isWin = true;
+            if (board[0, 2] == playerTurn && board[1, 1] == playerTurn && board[2, 0] == playerTurn) isWin = true;
+
+            if (isWin)
+            {
+                Debug.Log(">> " + playerTurn + " wins!");
+                return;
+            }
+
+            bool isDraw = true;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (board[i, j] != "X" && board[i, j] != "O")
+                    {
+                        isDraw = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isDraw)
+            {
+                Debug.Log(">> Draw");
+            }
+            else
+            {
+                Debug.Log(">> Continue");
+            }
         }
 
         private void PrintBoard(string[,] board)

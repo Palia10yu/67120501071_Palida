@@ -163,9 +163,9 @@ namespace Assignment05
             }
             int MaxNum = numbers[0];
 
-            for(int i =1; i < numbers.Length; i++)
+            for (int i = 1; i < numbers.Length; i++)
             {
-                if(numbers[i] < MaxNum)
+                if (numbers[i] < MaxNum)
                 {
                     Debug.Log(numbers[i]);
                     return;
@@ -179,7 +179,53 @@ namespace Assignment05
 
         public void EX01_FindLongestConsecutiveSequence(int[] numbers)
         {
-            throw new System.NotImplementedException();
+            if (numbers == null || numbers.Length == 0)
+            {
+                Debug.Log("The longest consecutive sequence is: 0");
+                return;
+            }
+
+            int n = numbers.Length;
+            for (int i = 1; i < n; i++)
+            {
+                int key = numbers[i];
+                int j = i - 1;
+                while (j >= 0 && numbers[j] > key)
+                {
+                    numbers[j + 1] = numbers[j];
+                    j--;
+                }
+                numbers[j + 1] = key;
+            }
+
+            int longestStreak = 1;
+            int currentStreak = 1;
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i] != numbers[i - 1])
+                {
+                    if (numbers[i] == numbers[i - 1] + 1)
+                    {
+                        currentStreak++; 
+                    }
+                    else
+                    {
+                        if (currentStreak > longestStreak)
+                        {
+                            longestStreak = currentStreak;
+                        }
+                        currentStreak = 1;
+                    }
+                }
+            }
+
+            if (currentStreak > longestStreak)
+            {
+                longestStreak = currentStreak;
+            }
+
+            Debug.Log($"The longest consecutive sequence is: {longestStreak}");
         }
 
         #endregion

@@ -15,28 +15,31 @@ namespace Assignment02.StudentSolution.LCT02
 
         // end of properties ...
 
-        // ÊÃéÒ§ constructor ·ÕèÃÑº parameter 3 µÑÇ áÅÐ¡ÓË¹´¤èÒãËé¡Ñº properties ¢Í§ class
-        // â´Â·Ñé§ 3 parameter ¤×Í name, breed, age µÒÁÅÓ´Ñº
-        public Dog()
+        // ï¿½ï¿½ï¿½Ò§ constructor ï¿½ï¿½ï¿½ï¿½Ñº parameter 3 ï¿½ï¿½ï¿½ ï¿½ï¿½Ð¡ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñº properties ï¿½Í§ class
+        // ï¿½Â·ï¿½ï¿½ 3 parameter ï¿½ï¿½ï¿½ name, breed, age ï¿½ï¿½ï¿½ï¿½Ó´Ñº
+        public Dog(string name, string breed, int age)
         {
-
+            this.name = name;
+            this.breed = breed;
+            this.age = age;
+             
         }
 
         /// behaviors ...
 
         public void Bark()
         {
-
+            Debug.Log($"{name} is barking");
         }
 
         public void WagTail()
         {
-
+            Debug.Log($"{name} is wagging tail");
         }
 
         public void StopBarking()
         {
-
+            Debug.Log($"{name} stopped barking");
         }
 
         // end of behaviors ...
@@ -48,17 +51,17 @@ namespace Assignment02.StudentSolution.LCT02
 
         public void Start()
         {
-            // ÊÃéÒ§ object dog1 ¢Í§ class Dog â´Âãªé constructor ·ÕèÃÑº parameter 3 µÑÇ
-            // áÅÐ¡ÓË¹´¤èÒãËé¡Ñº properties ¢Í§ object ¹Ñé¹
-            // ¡ÓË¹´ãËé name = "Buddy", breed = "Golden Retriever", age = 3
+            // ï¿½ï¿½ï¿½Ò§ object dog1 ï¿½Í§ class Dog ï¿½ï¿½ï¿½ï¿½ constructor ï¿½ï¿½ï¿½ï¿½Ñº parameter 3 ï¿½ï¿½ï¿½
+            // ï¿½ï¿½Ð¡ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñº properties ï¿½Í§ object ï¿½ï¿½ï¿½
+            // ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ name = "Buddy", breed = "Golden Retriever", age = 3
 
             // Student code starts HERE ...
             // ...
-
+            dog1 = new Dog("Buddy", "Samoyed", 1);
             // ...
             // Student code ends HERE ...
 
-            // àÃÕÂ¡ãªé method ¢Í§ object ¹Ñé¹
+            // ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ method ï¿½Í§ object ï¿½ï¿½ï¿½
 
             dog1.Bark();
             dog1.WagTail();
